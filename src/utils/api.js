@@ -9,3 +9,13 @@ export const getAllReviews = () => {
         return response.data.reviews;
     });
 };
+
+export const getQueriedReviews = (sortTerm, orderTerm, limitTerm) => {
+    return gameApi
+        .get(
+            `/reviews?sort_by=${sortTerm}&order=${orderTerm}&limit=${limitTerm}`
+        )
+        .then((response) => {
+            return response.data.reviews;
+        });
+};

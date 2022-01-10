@@ -6,10 +6,11 @@ const BasicReview = ({ reviews }) => {
                     <li key={review.review_id}>
                         <p>{review.title}</p>
                         <img src={review.review_img_url}></img>
-                        <p>{review.author}</p>
+                        <p>{review.owner}</p>
                         <p>{review.created_at}</p>
                         <p>{review.category}</p>
                         <p>{review.votes}</p>
+                        <p>{review.comment_count}</p>
                     </li>
                 );
             })}

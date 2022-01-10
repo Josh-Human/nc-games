@@ -15,7 +15,7 @@ const Reviews = () => {
     return (
         <>
             <p>Reviews</p>;
-            <Query />
+            <Query setReviews={setReviews} />
             <BasicReview reviews={reviews} />
         </>
     );

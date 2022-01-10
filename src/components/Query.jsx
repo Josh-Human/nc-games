@@ -1,52 +1,28 @@
+import SortBy from "./SortBy";
 import "./Query.css";
+import { getQueriedReviews } from "../utils/api";
+import { useState } from "react";
+import OrderBy from "./OrderBy";
 
-const Query = () => {
-    function toggleDropList() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
+const Query = ({ setReviews }) => {
+    const [sortTerm, setSortTerm] = useState("created_at");
+    const [orderTerm, setOrderTerm] = useState("asc");
+    const [limitTerm, setLimitTerm] = useState(100);
 
-    // Close the dropdown menu if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches(".dropbtn")) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains("show")) {
-                    openDropdown.classList.remove("show");
-                }
-            }
-        }
-    };
-
-    const handleSort = (event) => {
-        document.getElementById("displayed-name").innerHTML =
-            event.target.innerHTML;
+    const handleQuery = () => {
+        getQueriedReviews(sortTerm, orderTerm, limitTerm).then((result) => {
+            setReviews(result);
+        });
     };
 
     return (
         <>
             <h2>Latest Reviews</h2>
-            <div className="dropdown">
-                <button
-                    id="displayed-name"
-                    className="dropbtn"
-                    onClick={toggleDropList}
-                >
-                    Sort By
-                </button>
-                <div id="myDropdown" className="dropdown-content">
-                    <button onClick={handleSort}>Title</button>
-                    <button onClick={handleSort}>Date</button>
-                    <button onClick={handleSort}>Votes</button>
-                    <button onClick={handleSort}>Category</button>
-                    <button onClick={handleSort}>Owner</button>
-                    <button onClick={handleSort}>Comment Count</button>
-                </div>
-            </div>
-            <p>Order by</p>
+            <SortBy setSortTerm={setSortTerm} sortTerm={sortTerm} />
+            <OrderBy setOrderTerm={setOrderTerm} />
+            <p>No of results</p>
             <p>Search ID</p>
-            <p>Submit</p>
+            <button onClick={handleQuery}>Submit</button>
         </>
     );
 };

@@ -15,7 +15,6 @@ const Query = ({ setReviews }) => {
     const handleQuery = () => {
         getQueriedReviews(sortTerm, orderTerm, limitTerm).then((result) => {
             if (titleTerm !== "") {
-                console.log(titleTerm);
                 result = result.filter((item) =>
                     item.title.toLowerCase().includes(titleTerm.toLowerCase())
                 );

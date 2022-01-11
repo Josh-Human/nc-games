@@ -1,29 +1,38 @@
 import SortBy from "./SortBy";
-import "./Query.css";
+import "./css/Query.css";
 import { getQueriedReviews } from "../utils/api";
 import { useState } from "react";
 import OrderBy from "./OrderBy";
+import LimitResults from "./LimitResults";
+import Search from "./Search";
 
 const Query = ({ setReviews }) => {
     const [sortTerm, setSortTerm] = useState("created_at");
     const [orderTerm, setOrderTerm] = useState("asc");
     const [limitTerm, setLimitTerm] = useState(100);
+    const [titleTerm, setTitleTerm] = useState("");
 
     const handleQuery = () => {
         getQueriedReviews(sortTerm, orderTerm, limitTerm).then((result) => {
+            if (titleTerm !== "") {
+                console.log(titleTerm);
+                result = result.filter((item) =>
+                    item.title.toLowerCase().includes(titleTerm.toLowerCase())
+                );
+            }
             setReviews(result);
         });
     };
 
     return (
-        <>
+        <div className="query">
             <h2>Latest Reviews</h2>
             <SortBy setSortTerm={setSortTerm} sortTerm={sortTerm} />
             <OrderBy setOrderTerm={setOrderTerm} />
-            <p>No of results</p>
-            <p>Search ID</p>
+            <LimitResults setLimitTerm={setLimitTerm} />
+            <Search setTitleTerm={setTitleTerm} />
             <button onClick={handleQuery}>Submit</button>
-        </>
+        </div>
     );
 };
 

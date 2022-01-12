@@ -31,6 +31,9 @@ const SortBy = ({ setSortTerm, sortTerm }) => {
             setSortTerm(buttonText);
         }
     };
+    // create a list of factors to sort by and pass to query
+    // removes category from category reviews page later
+    // hooks?
 
     return (
         <div className="dropdown">

@@ -4,9 +4,7 @@ import Query from "./Query";
 import { useEffect, useState } from "react";
 import "./css/Reviews.css";
 
-const Reviews = ({ setReviewId }) => {
-    const [reviews, setReviews] = useState([]);
-
+const Reviews = ({ setReviewId, reviews, setReviews }) => {
     useEffect(() => {
         getAllReviews().then((result) => {
             setReviews(result);

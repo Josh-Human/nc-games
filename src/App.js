@@ -9,6 +9,8 @@ import { useState } from "react";
 function App() {
     const [username, setUsername] = useState("cooljmessy");
     const [reviewId, setReviewId] = useState(null);
+    const [reviews, setReviews] = useState([]);
+
     return (
         <BrowserRouter>
             <div className="App">
@@ -16,7 +18,13 @@ function App() {
                 <Routes>
                     <Route
                         path="/"
-                        element={<Reviews setReviewId={setReviewId} />}
+                        element={
+                            <Reviews
+                                setReviewId={setReviewId}
+                                reviews={reviews}
+                                setReviews={setReviews}
+                            />
+                        }
                     />
                     <Route
                         path="/profile"
@@ -24,7 +32,14 @@ function App() {
                     />
                     <Route
                         path={`/review/${reviewId}`}
-                        element={<Review reviewId={reviewId} />}
+                        element={
+                            <Review
+                                reviewId={reviewId}
+                                username={username}
+                                reviews={reviews}
+                                setReviews={setReviews}
+                            />
+                        }
                     />
                 </Routes>
             </div>

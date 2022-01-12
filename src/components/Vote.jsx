@@ -6,6 +6,7 @@ const Vote = ({ review, setReviews }) => {
     const [isDecDisabled, setIsDecDisabled] = useState(false);
 
     const handleVote = ({ target }) => {
+        console.log("test");
         let inc_vote = 0;
         if (target.id === `${review.review_id}__inc`) {
             if (isDecDisabled) {

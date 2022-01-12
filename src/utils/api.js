@@ -20,6 +20,12 @@ export const getQueriedReviews = (sortTerm, orderTerm, limitTerm) => {
         });
 };
 
+export const getReview = (review_id) => {
+    return gameApi.get(`/reviews/${review_id}`).then((res) => {
+        return res.data.review;
+    });
+};
+
 export const patchReviewVotes = (inc_votes, review_id) => {
     return gameApi
         .patch(`/reviews/${review_id}`, { inc_votes })

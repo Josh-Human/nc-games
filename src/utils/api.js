@@ -27,3 +27,9 @@ export const patchReviewVotes = (inc_votes, review_id) => {
             return response.data.review;
         });
 };
+
+export const getUser = (username) => {
+    return gameApi.get(`/users/${username}`).then((response) => {
+        return response.data.user;
+    });
+};

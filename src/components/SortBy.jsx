@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const SortBy = ({ setSortTerm, sortTerm }) => {
+    const [displayText, setDisplayText] = useState("Sort By");
+
     function toggleDropList() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
@@ -18,22 +22,18 @@ const SortBy = ({ setSortTerm, sortTerm }) => {
     };
 
     const handleSort = (event) => {
-        document.getElementById("displayed-name").innerHTML =
-            event.target.innerHTML;
+        setDisplayText(event.target.innerHTML);
 
         let buttonText = event.target.innerText.toLowerCase();
 
         if (buttonText === "date") {
             setSortTerm("created_at");
         } else if (buttonText === "comment count") {
-            setSortTerm("created_at");
+            setSortTerm("comment_count");
         } else {
             setSortTerm(buttonText);
         }
     };
-    // create a list of factors to sort by and pass to query
-    // removes category from category reviews page later
-    // hooks?
 
     return (
         <div className="dropdown">
@@ -42,7 +42,7 @@ const SortBy = ({ setSortTerm, sortTerm }) => {
                 className="dropbtn"
                 onClick={toggleDropList}
             >
-                Sort By
+                {displayText}
             </button>
             <div id="myDropdown" className="dropdown-content">
                 <button onClick={handleSort}>Title</button>
@@ -50,7 +50,6 @@ const SortBy = ({ setSortTerm, sortTerm }) => {
                 <button onClick={handleSort}>Votes</button>
                 <button onClick={handleSort}>Category</button>
                 <button onClick={handleSort}>Owner</button>
-                <button onClick={handleSort}>Comment Count</button>
             </div>
         </div>
     );

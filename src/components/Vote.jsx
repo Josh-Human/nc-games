@@ -1,65 +1,54 @@
 import { useState } from "react";
+import { patchReviewVotes } from "../utils/api.js";
 
 const Vote = ({ review, setReviews }) => {
     const [isIncDisabled, setIsIncDisabled] = useState(false);
     const [isDecDisabled, setIsDecDisabled] = useState(false);
-    // if patch fails catch and do opposite
-
-    // if clicked again do opposite and enable other button
-    //      - then decrease and reenable other
 
     const handleVote = ({ target }) => {
+        let inc_vote = 0;
         if (target.id === `${review.review_id}__inc`) {
             if (isDecDisabled) {
                 review.votes--;
-                console.log(review.votes);
+                inc_vote = -1;
                 setIsDecDisabled(false);
-                document.getElementById(
-                    `${review.review_id}__dec`
-                ).disabled = false;
             } else {
                 review.votes++;
+                inc_vote = 1;
                 setIsDecDisabled(true);
-                document.getElementById(
-                    `${review.review_id}__dec`
-                ).disabled = true;
             }
         } else {
             if (isIncDisabled) {
                 review.votes++;
+                inc_vote = 1;
                 setIsIncDisabled(false);
-                document.getElementById(
-                    `${review.review_id}__inc`
-                ).disabled = false;
             } else {
                 review.votes--;
-
+                inc_vote = -1;
                 setIsIncDisabled(true);
-                document.getElementById(
-                    `${review.review_id}__inc`
-                ).disabled = true;
             }
         }
-        // occurs after successful patch
-        setReviews((currReviews) => {
-            const newReviews = currReviews.map((currReview) => {
-                if (currReview.review_id === review.review_id) {
-                    currReview.votes = review.votes;
-                }
-                return currReview;
-            });
 
-            return newReviews;
+        patchReviewVotes(inc_vote, review.review_id).catch(() => {
+            inc_vote === 1 ? review.votes-- : review.votes++;
         });
     };
 
     return (
         <div>
-            <button id={`${review.review_id}__inc`} onClick={handleVote}>
+            <button
+                id={`${review.review_id}__inc`}
+                onClick={handleVote}
+                disabled={isIncDisabled}
+            >
                 +
             </button>
             <p>{review.votes}</p>
-            <button id={`${review.review_id}__dec`} onClick={handleVote}>
+            <button
+                id={`${review.review_id}__dec`}
+                onClick={handleVote}
+                disabled={isDecDisabled}
+            >
                 -
             </button>
         </div>

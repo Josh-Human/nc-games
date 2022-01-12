@@ -4,7 +4,7 @@ import Query from "./Query";
 import { useEffect, useState } from "react";
 import "./css/Reviews.css";
 
-const Reviews = () => {
+const Reviews = ({ setReviewId }) => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
@@ -16,7 +16,11 @@ const Reviews = () => {
     return (
         <div className="reviews">
             <Query setReviews={setReviews} />
-            <BasicReview reviews={reviews} setReviews={setReviews} />
+            <BasicReview
+                reviews={reviews}
+                setReviews={setReviews}
+                setReviewId={setReviewId}
+            />
         </div>
     );
 };

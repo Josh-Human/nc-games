@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function App() {
     const [username, setUsername] = useState("cooljmessy");
-    const [reviewId, setReviewId] = useState(null);
+    // const [reviewId, setReviewId] = useState(null);
     const [reviews, setReviews] = useState([]);
 
     return (
@@ -20,7 +20,7 @@ function App() {
                         path="/"
                         element={
                             <Reviews
-                                setReviewId={setReviewId}
+                                // setReviewId={setReviewId}
                                 reviews={reviews}
                                 setReviews={setReviews}
                             />
@@ -31,10 +31,10 @@ function App() {
                         element={<Profile username={username} />}
                     />
                     <Route
-                        path={`/review/${reviewId}`}
+                        path={`/review/:reviewId`}
                         element={
                             <Review
-                                reviewId={reviewId}
+                                // reviewId={reviewId}
                                 username={username}
                                 reviews={reviews}
                                 setReviews={setReviews}

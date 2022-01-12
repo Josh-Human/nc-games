@@ -39,3 +39,9 @@ export const getUser = (username) => {
         return response.data.user;
     });
 };
+
+export const getReviewComments = (reviewId) => {
+    return gameApi.get(`reviews/${reviewId}/comments`).then((response) => {
+        return response.data.comments;
+    });
+};

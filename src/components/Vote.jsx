@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { patchReviewVotes } from "../utils/api.js";
 
-const Vote = ({ review, setReviews }) => {
+const Vote = ({ review }) => {
     const [isIncDisabled, setIsIncDisabled] = useState(false);
     const [isDecDisabled, setIsDecDisabled] = useState(false);
 
     const handleVote = ({ target }) => {
-        console.log("test");
         let inc_vote = 0;
         if (target.id === `${review.review_id}__inc`) {
             if (isDecDisabled) {

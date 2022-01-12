@@ -1,0 +1,13 @@
+.single_review {
+    padding-top: 10%;
+    background-color: #e9a111;
+    height: 100vh;
+}
+
+.single_review__card {
+    margin: 2.5%;
+    background-color: #ba6e6e;
+    border-radius: 3%;
+    list-style: none;
+    height: 60vh;
+}

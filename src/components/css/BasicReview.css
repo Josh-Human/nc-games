@@ -1,6 +1,17 @@
-.reviews__card {
-    border: gold 2px solid;
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "card card card";
+    grid-gap: 20px;
+    padding: 10px 20px;
+}
+
+empty {
+    grid-area: empty;
+}
+.list__card {
+    grid-area: card 1 span;
+    border: #ba6e6e 2px solid;
     border-radius: 3%;
-    max-width: 20%;
-    margin: 0;
+    list-style: none;
 }

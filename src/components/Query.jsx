@@ -26,11 +26,13 @@ const Query = ({ setReviews }) => {
     return (
         <div className="query">
             <h2>Latest Reviews</h2>
-            <SortBy setSortTerm={setSortTerm} sortTerm={sortTerm} />
-            <OrderBy setOrderTerm={setOrderTerm} />
-            <LimitResults setLimitTerm={setLimitTerm} />
-            <Search setTitleTerm={setTitleTerm} />
-            <button onClick={handleQuery}>Submit</button>
+            <div className="query__items">
+                <SortBy setSortTerm={setSortTerm} sortTerm={sortTerm} />
+                <OrderBy setOrderTerm={setOrderTerm} />
+                <LimitResults setLimitTerm={setLimitTerm} />
+                <Search setTitleTerm={setTitleTerm} />
+                <button onClick={handleQuery}>Submit</button>
+            </div>
         </div>
     );
 };

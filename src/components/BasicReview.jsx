@@ -4,10 +4,10 @@ import Vote from "./Vote.jsx";
 
 const BasicReview = ({ reviews, setReviews, setReviewId }) => {
     return (
-        <ul>
+        <ul className="list">
             {reviews.map((review) => {
                 return (
-                    <li key={review.review_id} className="reviews__card">
+                    <li key={review.review_id} className="list__card">
                         <p>
                             <Link
                                 to={`review/${review.review_id}`}

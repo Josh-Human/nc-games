@@ -7,7 +7,7 @@ import { GridLoader } from "react-spinners";
 
 const Categories = ({ reviews, setReviewId, setReviews }) => {
     const [categories, setCategories] = useState([]);
-    // const [category, setCategory] = useState(null);
+    const [category, setCategory] = useState(null);
     const [isCategoriesLoading, setIsCategoriesLoading] = useState(true);
     const [isReviewsLoading, setIsReviewsLoading] = useState(true);
 
@@ -22,10 +22,12 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
 
     const handleClick = (event) => {
         setIsReviewsLoading(true);
+        setCategory(event.target.innerText.toLowerCase());
         getAllReviews().then((result) => {
             setReviews(
                 result.filter(
-                    (item) => item.category === event.target.innerText
+                    (item) =>
+                        item.category === event.target.innerText.toLowerCase()
                 )
             );
             setIsReviewsLoading(false);
@@ -37,18 +39,20 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
                 {isCategoriesLoading ? (
                     <GridLoader />
                 ) : (
-                    <ul>
+                    <ul className="cateories__bar__items">
                         {categories.map((category) => {
                             return (
                                 <li key={category.slug} onClick={handleClick}>
-                                    {category.slug}
+                                    {category.slug.toUpperCase()}
                                 </li>
                             );
                         })}
                     </ul>
                 )}
             </div>
-            <Query setReviews={setReviews} />
+            <div className="categories__query">
+                <Query setReviews={setReviews} category={category} />
+            </div>
             {reviews.length < 1 ? (
                 "No reviews in this category."
             ) : isReviewsLoading ? (

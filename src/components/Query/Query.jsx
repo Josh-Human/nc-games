@@ -6,7 +6,7 @@ import OrderBy from "./OrderBy";
 import LimitResults from "./LimitResults";
 import Search from "./Search";
 
-const Query = ({ setReviews }) => {
+const Query = ({ setReviews, category }) => {
     const [sortTerm, setSortTerm] = useState("created_at");
     const [orderTerm, setOrderTerm] = useState("asc");
     const [limitTerm, setLimitTerm] = useState(100);
@@ -18,6 +18,11 @@ const Query = ({ setReviews }) => {
                 result = result.filter((item) =>
                     item.title.toLowerCase().includes(titleTerm.toLowerCase())
                 );
+            }
+            console.log(category);
+            if (category) {
+                console.log("test");
+                result = result.filter((item) => item.category === category);
             }
             setReviews(result);
         });

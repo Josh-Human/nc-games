@@ -1,5 +1,10 @@
-/* .reviews {
-    background-color: #f9f6f0;
+.reviews__container {
+    background-color: #db960b;
     padding-top: 80px;
     display: block;
-} */
+    padding: 5px 5px;
+}
+
+.reviews {
+    min-width: 100%;
+}

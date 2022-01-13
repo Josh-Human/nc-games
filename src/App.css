@@ -6,13 +6,3 @@ img {
     max-width: 200px;
     max-height: 200px;
 }
-
-.reviews__container {
-    background-color: #f9f6f0;
-    padding-top: 80px;
-    display: block;
-}
-
-.reviews {
-    min-width: 100%;
-}

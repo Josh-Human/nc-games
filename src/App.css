@@ -12,3 +12,7 @@ img {
     padding-top: 80px;
     display: block;
 }
+
+.reviews {
+    min-width: 100%;
+}

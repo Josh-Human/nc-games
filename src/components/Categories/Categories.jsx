@@ -54,11 +54,13 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
             ) : isReviewsLoading ? (
                 <GridLoader />
             ) : (
-                <BasicReview
-                    reviews={reviews}
-                    setReviews={setReviews}
-                    setReviewId={setReviewId}
-                />
+                <div className="reviews__container">
+                    <BasicReview
+                        reviews={reviews}
+                        setReviews={setReviews}
+                        setReviewId={setReviewId}
+                    />
+                </div>
             )}
         </div>
     );

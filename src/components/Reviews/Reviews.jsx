@@ -22,11 +22,13 @@ const Reviews = ({ setReviewId, reviews, setReviews }) => {
             {isLoading ? (
                 <GridLoader />
             ) : (
-                <BasicReview
-                    reviews={reviews}
-                    setReviews={setReviews}
-                    setReviewId={setReviewId}
-                />
+                <div className="reviews__container">
+                    <BasicReview
+                        reviews={reviews}
+                        setReviews={setReviews}
+                        setReviewId={setReviewId}
+                    />
+                </div>
             )}
         </div>
     );

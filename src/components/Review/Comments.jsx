@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getReviewComments } from "../utils/api";
+import { getReviewComments } from "../../utils/api";
 import OtherComment from "./OtherComment";
 import OwnComment from "./OwnComment";
 import PostComment from "./PostComment";
@@ -29,7 +29,11 @@ const Comments = ({ reviewId, username }) => {
                           return (
                               <li key={comment.comment_id}>
                                   {comment.author === username ? (
-                                      <OwnComment comment={comment} />
+                                      <OwnComment
+                                          comment={comment}
+                                          setComments={setComments}
+                                          review_id={reviewId}
+                                      />
                                   ) : (
                                       <OtherComment comment={comment} />
                                   )}

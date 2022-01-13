@@ -55,10 +55,6 @@ export const patchCommentVote = (inc_votes, comment_id) => {
 };
 
 export const postComment = (review_id, username, body) => {
-    console.log({
-        username: username,
-        body: body,
-    });
     return gameApi
         .post(`/reviews/${review_id}/comments`, {
             username: username,
@@ -67,4 +63,14 @@ export const postComment = (review_id, username, body) => {
         .then((response) => {
             return response.data.comment;
         });
+};
+
+export const deleteComment = (comment_id) => {
+    return gameApi.delete(`/comments/${comment_id}`);
+};
+
+export const getCategories = () => {
+    return gameApi.get("/categories").then((res) => {
+        return res.data.categories;
+    });
 };

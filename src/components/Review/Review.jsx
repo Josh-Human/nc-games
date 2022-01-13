@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getReview } from "../utils/api";
-import Vote from "./Vote";
-import "./css/Review.css";
+import { getReview } from "../../utils/api";
+import Vote from "../Vote";
+import "../css/Review.css";
 import Comments from "./Comments";
 
 const Review = ({ setReviews, username }) => {

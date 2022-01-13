@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getReviewComments, postComment } from "../utils/api";
+import { useState } from "react";
+import { getReviewComments, postComment } from "../../utils/api";
 
 const PostComment = ({ review_id, username, setComments }) => {
     const [commentBody, setCommentBody] = useState(null);

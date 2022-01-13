@@ -1,6 +1,6 @@
 import SortBy from "./SortBy";
-import "./css/Query.css";
-import { getQueriedReviews } from "../utils/api";
+import "../css/Query.css";
+import { getQueriedReviews } from "../../utils/api";
 import { useState } from "react";
 import OrderBy from "./OrderBy";
 import LimitResults from "./LimitResults";

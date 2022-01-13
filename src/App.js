@@ -1,10 +1,11 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Reviews from "./components/Reviews";
-import Review from "./components/Review";
-import Profile from "./components/Profile";
+import Reviews from "./components/Reviews/Reviews.jsx";
+import Review from "./components/Review/Review.jsx";
+import Profile from "./components/Profile.jsx";
 import { useState } from "react";
+import Categories from "./components/Categories/Categories";
 
 function App() {
     const [username, setUsername] = useState("cooljmessy");
@@ -36,6 +37,15 @@ function App() {
                             <Review
                                 // reviewId={reviewId}
                                 username={username}
+                                setReviews={setReviews}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/categories"
+                        element={
+                            <Categories
+                                reviews={reviews}
                                 setReviews={setReviews}
                             />
                         }

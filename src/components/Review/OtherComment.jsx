@@ -1,4 +1,4 @@
-import Vote from "./Vote";
+import Vote from "../Vote";
 
 const OtherComment = ({ comment }) => {
     return (

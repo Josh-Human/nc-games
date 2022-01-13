@@ -2,20 +2,26 @@ import BasicReview from "../BasicReview";
 import Query from "../Query/Query";
 import "../css/Categories.css";
 import { useEffect, useState } from "react";
-import { getCategories } from "../../utils/api";
+import { getAllReviews, getCategories } from "../../utils/api";
 
 const Categories = ({ reviews, setReviewId, setReviews }) => {
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState(null);
-
     useEffect(() => {
         getCategories().then((result) => {
             setCategories(result);
         });
+        setReviews([]);
     }, []);
 
     const handleClick = (event) => {
-        console.log("tets");
+        getAllReviews().then((result) => {
+            setReviews(
+                result.filter(
+                    (item) => item.category === event.target.innerText
+                )
+            );
+        });
     };
     return (
         <div className="categories">
@@ -31,11 +37,16 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
                 </ul>
             </div>
             <Query setReviews={setReviews} />
-            <BasicReview
-                reviews={reviews}
-                setReviews={setReviews}
-                setReviewId={setReviewId}
-            />
+            {console.log(categories.length)}
+            {reviews.length < 1 ? (
+                "No reviews in this category."
+            ) : (
+                <BasicReview
+                    reviews={reviews}
+                    setReviews={setReviews}
+                    setReviewId={setReviewId}
+                />
+            )}
         </div>
     );
 };

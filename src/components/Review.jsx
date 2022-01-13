@@ -5,7 +5,7 @@ import Vote from "./Vote";
 import "./css/Review.css";
 import Comments from "./Comments";
 
-const Review = ({ reviews, setReviews }) => {
+const Review = ({ setReviews, username }) => {
     const [review, setReview] = useState({});
     const { reviewId } = useParams();
 
@@ -23,10 +23,10 @@ const Review = ({ reviews, setReviews }) => {
                     <p>{review.owner}</p>
                     <p>{review.created_at}</p>
                     <p>{review.review_body}</p>
-                    <Vote review={review} setReviews={setReviews} />
+                    <Vote item={review} itemStr={"review"} />
                     <p>{review.comment_count}</p>
                     <p>{review.category}</p>
-                    <Comments reviewId={reviewId} />
+                    <Comments reviewId={reviewId} username={username} />
                 </li>
             </span>
         </div>

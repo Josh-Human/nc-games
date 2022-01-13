@@ -21,7 +21,7 @@ const BasicReview = ({ reviews, setReviews, setReviewId }) => {
                         <img src={review.review_img_url}></img>
                         <p>{review.owner}</p>
                         <p>{review.created_at}</p>
-                        <Vote review={review} setReviews={setReviews} />
+                        <Vote item={review} itemStr={"review"} />
                         <p>{review.comment_count}</p>
                         <p>{review.category}</p>
                     </li>

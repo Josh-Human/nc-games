@@ -41,7 +41,30 @@ export const getUser = (username) => {
 };
 
 export const getReviewComments = (reviewId) => {
-    return gameApi.get(`reviews/${reviewId}/comments`).then((response) => {
+    return gameApi.get(`/reviews/${reviewId}/comments`).then((response) => {
         return response.data.comments;
     });
+};
+
+export const patchCommentVote = (inc_votes, comment_id) => {
+    return gameApi
+        .patch(`/comments/${comment_id}`, { inc_votes })
+        .then((response) => {
+            return response.data.comments;
+        });
+};
+
+export const postComment = (review_id, username, body) => {
+    console.log({
+        username: username,
+        body: body,
+    });
+    return gameApi
+        .post(`/reviews/${review_id}/comments`, {
+            username: username,
+            body: body,
+        })
+        .then((response) => {
+            return response.data.comment;
+        });
 };

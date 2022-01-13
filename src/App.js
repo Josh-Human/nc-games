@@ -36,7 +36,6 @@ function App() {
                             <Review
                                 // reviewId={reviewId}
                                 username={username}
-                                reviews={reviews}
                                 setReviews={setReviews}
                             />
                         }

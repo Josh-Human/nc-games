@@ -2,11 +2,11 @@
 
 ## README - write your own and make sure that it:
 
--   [ ] has a link to the deployed version
--   [ ] provides general info about your app
--   [ ] includes links to your back end repo
--   [ ] specifies the minimum version of Node required to run locally (check your Node version, `node --version` and use the major version that you are on)
--   [ ] has clear instructions on how to run your project locally (`git clone <repo-url>, cd ...`)
+-   [x] has a link to the deployed version
+-   [x] provides general info about your app
+-   [x] includes links to your back end repo
+-   [x] specifies the minimum version of Node required to run locally (check your Node version, `node --version` and use the major version that you are on)
+-   [x] has clear instructions on how to run your project locally (`git clone <repo-url>, cd ...`)
 
 ## UX
 
@@ -22,8 +22,8 @@
 
 ### Login
 
--   [ ] Some indication of who is logged in (this can be hardcoded)
-    -   i would like to see who i am signed up, just the username, at the top next to Progile link
+-   [x] Some indication of who is logged in (this can be hardcoded)
+-   [x] i would like to see who i am signed up, just the username, at the top next to Progile link
 
 ### Reviews
 

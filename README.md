@@ -1,26 +1,49 @@
-## Current
+# NorthGames - An api app
 
-## To-Do
+A simple react [app] (https://nc-games-josh.netlify.app "NorthGames a <> app.") to showcase frontend development using React on a api.
 
-view a page for each category with a list of related reviews.
+## Table of Contents
 
-## Completed
+-   [About](#About)
+-   [Technologies](#tech)
+-   [Setup](#setup)
+-   [Status](#Status)
 
-view a list of all reviews
+## **About**
 
-vote on an review and immediately see the change.
+This browser application allows you to get information on games and the comments/reviews associated with them. Includes functionality for updating, creating and deleting posts.
 
-sort reviews by:
+Backend api repo may be found at
 
--   created_at
--   comment_count
--   votes
+-   https://github.com/Josh-Human/northgames
 
-view an individual review.
-view an individual review's comments.
-post a new comment to an existing review (as a default logged in user. e.g. 'jessjelly').
+## **Technologies**
 
--   Make a individual review page
--   show comments (my own and others)
--   allow posting of new comment
-    delete my own comments (as a default logged in user. e.g. 'jessjelly').
+-   **Node v17.1.0**
+-   **React**
+
+## **Setup**
+
+To clone project locally:
+
+1.  Navigate to desired directory.
+2.  Run code below in terminal.
+    </ol>
+
+        git clone https://github.com/Josh-Human/nc-games.git
+
+To install dependencies, navigate inside northgames directory and run:
+
+    npm install
+
+All Jest tests may be ran using:
+
+    npm test
+
+A local version may be accessed with:
+
+    npm start
+
+## **Status**
+
+**No known issues.**

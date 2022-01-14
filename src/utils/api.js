@@ -10,7 +10,11 @@ export const getAllReviews = () => {
     });
 };
 
-export const getQueriedReviews = (sortTerm, orderTerm, limitTerm) => {
+export const getQueriedReviews = (
+    sortTerm = "created_at",
+    orderTerm = "asc",
+    limitTerm = 100
+) => {
     return gameApi
         .get(
             `/reviews?sort_by=${sortTerm}&order=${orderTerm}&limit=${limitTerm}`

@@ -4,14 +4,14 @@ import "../css/Categories.css";
 import { useEffect, useState } from "react";
 import { getAllReviews, getCategories } from "../../utils/api";
 import { GridLoader } from "react-spinners";
-const RESULTS_PER_PAGE = 5;
+// const RESULTS_PER_PAGE = 5;
 
 const Categories = ({ reviews, setReviewId, setReviews }) => {
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState(null);
     const [isCategoriesLoading, setIsCategoriesLoading] = useState(true);
     const [isReviewsLoading, setIsReviewsLoading] = useState(true);
-    const [currPage, setCurrPage] = useState(0);
+    // const [currPage, setCurrPage] = useState(0);
 
     useEffect(() => {
         setIsCategoriesLoading(true);
@@ -37,15 +37,14 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
         });
     };
 
-    useEffect(() => {
-        console.log(currPage);
-        setReviews((currReviews) => {
-            return currReviews.slice(
-                currPage * RESULTS_PER_PAGE,
-                (currPage + 1) * RESULTS_PER_PAGE
-            );
-        });
-    }, [currPage]);
+    // useEffect(() => {
+    //     setReviews((currReviews) => {
+    //         return currReviews.slice(
+    //             currPage * RESULTS_PER_PAGE,
+    //             (currPage + 1) * RESULTS_PER_PAGE
+    //         );
+    //     });
+    // }, [currPage]);
     return (
         <div className="categories">
             <div className="categories__bar">
@@ -77,7 +76,7 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
                         setReviews={setReviews}
                         setReviewId={setReviewId}
                     />
-                    <button
+                    {/* <button
                         onClick={() => {
                             setCurrPage(currPage - 1);
                         }}
@@ -94,7 +93,7 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
                         }
                     >
                         Next
-                    </button>
+                    </button> */}
                 </div>
             )}
         </div>

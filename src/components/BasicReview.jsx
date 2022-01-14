@@ -10,7 +10,7 @@ const BasicReview = ({ reviews, setReviews, setReviewId }) => {
                     <li key={review.review_id} className="list__card">
                         <p>
                             <Link
-                                to={`review/${review.review_id}`}
+                                to={`/review/${review.review_id}`}
                                 onClick={(event) => {
                                     setReviewId(review.review_id);
                                 }}

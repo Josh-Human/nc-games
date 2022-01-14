@@ -30,7 +30,7 @@ const Query = ({ setReviews, category }) => {
         <div className="query">
             <h2>Latest Reviews</h2>
             <div className="query__items">
-                <SortBy setSortTerm={setSortTerm} sortTerm={sortTerm} />
+                <SortBy setSortTerm={setSortTerm} />
                 <OrderBy setOrderTerm={setOrderTerm} />
                 <LimitResults setLimitTerm={setLimitTerm} />
                 <Search setTitleTerm={setTitleTerm} />

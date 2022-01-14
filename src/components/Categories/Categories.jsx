@@ -2,7 +2,7 @@ import BasicReview from "../BasicReview";
 import Query from "../Query/Query";
 import "../css/Categories.css";
 import { useEffect, useState } from "react";
-import { getAllReviews, getCategories } from "../../utils/api";
+import { getQueriedReviews, getCategories } from "../../utils/api";
 import { GridLoader } from "react-spinners";
 // const RESULTS_PER_PAGE = 5;
 
@@ -25,7 +25,7 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
     const handleClick = (event) => {
         setIsReviewsLoading(true);
         setCategory(event.target.innerText.toLowerCase());
-        getAllReviews().then((result) => {
+        getQueriedReviews().then((result) => {
             setReviews(
                 result.filter(
                     (item) =>

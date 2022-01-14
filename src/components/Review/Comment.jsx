@@ -1,7 +1,7 @@
 import { deleteComment, getReviewComments } from "../../utils/api";
 import Vote from "../Vote";
 
-const OwnComment = ({ comment, setComments, review_id }) => {
+const OwnComment = ({ comment, setComments, review_id, username }) => {
     const handleDeleteComment = () => {
         deleteComment(comment.comment_id).then(() => {
             getReviewComments(review_id).then((result) => {
@@ -13,12 +13,15 @@ const OwnComment = ({ comment, setComments, review_id }) => {
     };
     return (
         <>
-            <p> HEY YOU MADE THIS COMMENT!</p>
             <p>{comment.author}</p>
             <p>{comment.body}</p>
             <p>{comment.created_at}</p>
             <Vote item={comment} itemStr={"comment"} />
-            <button onClick={handleDeleteComment}>Delete this comment</button>
+            {username === comment.author ? (
+                <button onClick={handleDeleteComment}>
+                    Delete this comment
+                </button>
+            ) : null}
         </>
     );
 };

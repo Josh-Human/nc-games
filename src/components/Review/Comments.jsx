@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getReviewComments } from "../../utils/api";
-import OtherComment from "./OtherComment";
-import OwnComment from "./OwnComment";
+import Comment from "./Comment";
 import PostComment from "./PostComment";
 
 const Comments = ({ reviewId, username }) => {
@@ -28,15 +27,12 @@ const Comments = ({ reviewId, username }) => {
                     : comments.map((comment) => {
                           return (
                               <li key={comment.comment_id}>
-                                  {comment.author === username ? (
-                                      <OwnComment
-                                          comment={comment}
-                                          setComments={setComments}
-                                          review_id={reviewId}
-                                      />
-                                  ) : (
-                                      <OtherComment comment={comment} />
-                                  )}
+                                  <Comment
+                                      comment={comment}
+                                      setComments={setComments}
+                                      review_id={reviewId}
+                                      username={username}
+                                  />
                               </li>
                           );
                       })}

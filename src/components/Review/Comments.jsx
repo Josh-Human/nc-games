@@ -3,13 +3,13 @@ import { getReviewComments } from "../../utils/api";
 import Comment from "./Comment";
 import PostComment from "./PostComment";
 
-const Comments = ({ reviewId, username }) => {
+const Comments = ({ review_id, username }) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
         let isMounted = true;
 
-        getReviewComments(reviewId).then((result) => {
+        getReviewComments(review_id).then((result) => {
             if (isMounted) {
                 setComments(() => {
                     return result.sort((a, b) => a.comment_id - b.comment_id);
@@ -19,12 +19,12 @@ const Comments = ({ reviewId, username }) => {
         return () => {
             isMounted = false;
         };
-    }, [reviewId]);
+    }, [review_id]);
 
     return (
         <>
             <PostComment
-                review_id={reviewId}
+                review_id={review_id}
                 username={username}
                 setComments={setComments}
             />
@@ -37,7 +37,7 @@ const Comments = ({ reviewId, username }) => {
                                   <Comment
                                       comment={comment}
                                       setComments={setComments}
-                                      review_id={reviewId}
+                                      review_id={review_id}
                                       username={username}
                                   />
                               </li>

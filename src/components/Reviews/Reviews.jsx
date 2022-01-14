@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import "../css/Reviews.css";
 import { GridLoader } from "react-spinners";
 
-const RESULTS_PER_PAGE = 5;
-
 const Reviews = ({ setReviewId, reviews, setReviews }) => {
     const [isLoading, setIsLoading] = useState(true);
 
@@ -17,7 +15,7 @@ const Reviews = ({ setReviewId, reviews, setReviews }) => {
             setReviews(result);
             setIsLoading(false);
         });
-    }, [setReviews]);
+    }, []);
 
     return (
         <div className="reviews">
@@ -26,11 +24,7 @@ const Reviews = ({ setReviewId, reviews, setReviews }) => {
                 <GridLoader />
             ) : (
                 <div className="reviews__container">
-                    <BasicReview
-                        reviews={reviews}
-                        setReviews={setReviews}
-                        setReviewId={setReviewId}
-                    />
+                    <BasicReview reviews={reviews} setReviewId={setReviewId} />
                 </div>
             )}
         </div>

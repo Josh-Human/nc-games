@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./css/BasicReview.css";
 import Vote from "./Vote.jsx";
 
-const BasicReview = ({ reviews, setReviews, setReviewId }) => {
+const BasicReview = ({ reviews, setReviewId }) => {
     return (
         <ul className="list">
             {reviews.map((review) => {
@@ -11,7 +11,7 @@ const BasicReview = ({ reviews, setReviews, setReviewId }) => {
                         <p>
                             <Link
                                 to={`/review/${review.review_id}`}
-                                onClick={(event) => {
+                                onClick={() => {
                                     setReviewId(review.review_id);
                                 }}
                             >

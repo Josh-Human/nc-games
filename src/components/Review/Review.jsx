@@ -6,20 +6,20 @@ import "../css/Review.css";
 import Comments from "./Comments";
 import Error from "../Error.jsx";
 
-const Review = ({ setReviews, username }) => {
+const Review = ({ username }) => {
     const [review, setReview] = useState({});
-    const { reviewId } = useParams();
+    const { review_id } = useParams();
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        getReview(reviewId)
+        getReview(review_id)
             .then((result) => {
                 setReview(result);
             })
             .catch((err) => {
                 setError({ err });
             });
-    }, [reviewId]);
+    }, [review_id]);
 
     if (error) {
         return <Error response={error.err.response} />;
@@ -36,7 +36,7 @@ const Review = ({ setReviews, username }) => {
                     <Vote item={review} itemStr={"review"} />
                     <p>{review.comment_count}</p>
                     <p>{review.category}</p>
-                    <Comments reviewId={reviewId} username={username} />
+                    <Comments review_id={review_id} username={username} />
                 </li>
             </span>
         </div>

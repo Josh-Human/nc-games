@@ -30,13 +30,8 @@ function App() {
                         element={<Profile username={username} />}
                     />
                     <Route
-                        path={`/review/:reviewId`}
-                        element={
-                            <Review
-                                username={username}
-                                setReviews={setReviews}
-                            />
-                        }
+                        path={`/review/:review_id`}
+                        element={<Review username={username} />}
                     />
                     <Route
                         path="/categories"

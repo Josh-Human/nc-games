@@ -4,14 +4,12 @@ import "../css/Categories.css";
 import { useEffect, useState } from "react";
 import { getQueriedReviews, getCategories } from "../../utils/api";
 import { GridLoader } from "react-spinners";
-// const RESULTS_PER_PAGE = 5;
 
 const Categories = ({ reviews, setReviewId, setReviews }) => {
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState(null);
     const [isCategoriesLoading, setIsCategoriesLoading] = useState(true);
     const [isReviewsLoading, setIsReviewsLoading] = useState(true);
-    // const [currPage, setCurrPage] = useState(0);
 
     useEffect(() => {
         setIsCategoriesLoading(true);
@@ -37,14 +35,6 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
         });
     };
 
-    // useEffect(() => {
-    //     setReviews((currReviews) => {
-    //         return currReviews.slice(
-    //             currPage * RESULTS_PER_PAGE,
-    //             (currPage + 1) * RESULTS_PER_PAGE
-    //         );
-    //     });
-    // }, [currPage]);
     return (
         <div className="categories">
             <div className="categories__bar">
@@ -71,29 +61,7 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
                 <GridLoader />
             ) : (
                 <div className="reviews__container">
-                    <BasicReview
-                        reviews={reviews}
-                        setReviews={setReviews}
-                        setReviewId={setReviewId}
-                    />
-                    {/* <button
-                        onClick={() => {
-                            setCurrPage(currPage - 1);
-                        }}
-                        disabled={currPage === 0}
-                    >
-                        Back
-                    </button>
-                    <button
-                        onClick={() => {
-                            setCurrPage(currPage + 1);
-                        }}
-                        disabled={
-                            (currPage + 1) * RESULTS_PER_PAGE >= reviews.length
-                        }
-                    >
-                        Next
-                    </button> */}
+                    <BasicReview reviews={reviews} setReviewId={setReviewId} />
                 </div>
             )}
         </div>

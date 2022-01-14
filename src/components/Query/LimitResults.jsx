@@ -1,23 +1,11 @@
-import { useState } from "react";
-
 const LimitResults = ({ setLimitTerm }) => {
-    const [limitDisplay, setLimitDisplay] = useState("# of results");
-    const handleLimit = (event) => {
-        setLimitDisplay(event.target.value);
-        setLimitTerm(event.target.value);
-    };
-
     return (
         <div>
-            {/* <label htmlFor="limit"># of results </label>
-            <input
-                type="number"
-                id="limit"
-                min="0"
-                name="limit"
-                onChange={handleLimit}
-            ></input> */}
-            <select onChange={handleLimit}>
+            <select
+                onChange={(e) => {
+                    setLimitTerm(e.target.value);
+                }}
+            >
                 <option value={100} hidden>
                     # of results
                 </option>

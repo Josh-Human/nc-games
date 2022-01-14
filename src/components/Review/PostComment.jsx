@@ -2,11 +2,9 @@ import { useState } from "react";
 import { getReviewComments, postComment } from "../../utils/api";
 
 const PostComment = ({ review_id, username, setComments }) => {
-    const [commentBody, setCommentBody] = useState(null);
-    const [commentBox, setCommentBox] = useState("Write a comment...");
+    const [commentBox, setCommentBox] = useState("");
     const handleNewComment = (event) => {
         event.preventDefault();
-        setCommentBody(commentBox);
         postComment(review_id, username, event.target.elements[0].value).then(
             () => {
                 setCommentBox("");
@@ -26,6 +24,7 @@ const PostComment = ({ review_id, username, setComments }) => {
             <form onSubmit={handleNewComment}>
                 <input
                     type="text"
+                    placeholder="Write a comment..."
                     value={commentBox}
                     onFocus={() => {
                         setCommentBox("");
@@ -33,8 +32,9 @@ const PostComment = ({ review_id, username, setComments }) => {
                     onChange={(event) => {
                         setCommentBox(event.target.value);
                     }}
+                    required={true}
                 ></input>
-                <input type="submit"></input>
+                <button>Post!</button>
             </form>
         </div>
     );

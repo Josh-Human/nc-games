@@ -4,16 +4,26 @@ import { getReview } from "../../utils/api";
 import Vote from "../Vote";
 import "../css/Review.css";
 import Comments from "./Comments";
+import Error from "../Error.jsx";
 
 const Review = ({ setReviews, username }) => {
     const [review, setReview] = useState({});
     const { reviewId } = useParams();
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        getReview(reviewId).then((result) => {
-            setReview(result);
-        });
+        getReview(reviewId)
+            .then((result) => {
+                setReview(result);
+            })
+            .catch((err) => {
+                setError({ err });
+            });
     }, [reviewId]);
+
+    if (error) {
+        return <Error response={error.err.response} />;
+    }
     return (
         <div className="single_review">
             <span style={{ display: "block" }}>

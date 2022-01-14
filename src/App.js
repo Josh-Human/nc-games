@@ -6,22 +6,20 @@ import Review from "./components/Review/Review.jsx";
 import Profile from "./components/Profile.jsx";
 import { useState } from "react";
 import Categories from "./components/Categories/Categories";
+import Error from "./components/Error.jsx";
 
 function App() {
     const [username, setUsername] = useState("cooljmessy");
-    // const [reviewId, setReviewId] = useState(null);
     const [reviews, setReviews] = useState([]);
-
     return (
         <BrowserRouter>
             <div className="App">
-                <NavBar />
+                <NavBar username={username} />
                 <Routes>
                     <Route
                         path="/"
                         element={
                             <Reviews
-                                // setReviewId={setReviewId}
                                 reviews={reviews}
                                 setReviews={setReviews}
                             />
@@ -35,7 +33,6 @@ function App() {
                         path={`/review/:reviewId`}
                         element={
                             <Review
-                                // reviewId={reviewId}
                                 username={username}
                                 setReviews={setReviews}
                             />
@@ -50,6 +47,7 @@ function App() {
                             />
                         }
                     />
+                    <Route path="*" element={<Error />} />
                 </Routes>
             </div>
         </BrowserRouter>

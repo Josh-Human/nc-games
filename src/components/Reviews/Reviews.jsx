@@ -7,6 +7,7 @@ import { GridLoader } from "react-spinners";
 
 const Reviews = ({ setReviewId, reviews, setReviews }) => {
     const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         setIsLoading(true);
 

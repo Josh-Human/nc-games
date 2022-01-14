@@ -19,9 +19,7 @@ const Query = ({ setReviews, category }) => {
                     item.title.toLowerCase().includes(titleTerm.toLowerCase())
                 );
             }
-            console.log(category);
             if (category) {
-                console.log("test");
                 result = result.filter((item) => item.category === category);
             }
             setReviews(result);

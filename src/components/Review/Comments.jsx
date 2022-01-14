@@ -7,11 +7,18 @@ const Comments = ({ reviewId, username }) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
+        let isMounted = true;
+
         getReviewComments(reviewId).then((result) => {
-            setComments(() => {
-                return result.sort((a, b) => a.comment_id - b.comment_id);
-            });
+            if (isMounted) {
+                setComments(() => {
+                    return result.sort((a, b) => a.comment_id - b.comment_id);
+                });
+            }
         });
+        return () => {
+            isMounted = false;
+        };
     }, [reviewId]);
 
     return (

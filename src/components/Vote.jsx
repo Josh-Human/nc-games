@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-    patchCommentVote,
-    patchReviewVotes,
-    patchVotes,
-} from "../utils/api.js";
+import { patchVotes } from "../utils/api.js";
 
 const Vote = ({ item, itemStr }) => {
     const [voteChange, setVoteChange] = useState(0);
+
     useEffect(() => {
         if (voteChange !== 0) {
             patchVotes(voteChange, item[`${itemStr}_id`], itemStr + "s").catch(

@@ -6,35 +6,17 @@ import {
 } from "../utils/api.js";
 
 const Vote = ({ item, itemStr }) => {
-    const [isIncDisabled, setIsIncDisabled] = useState(false);
-    const [isDecDisabled, setIsDecDisabled] = useState(false);
+    const [voteChange, setVoteChange] = useState(0);
 
     const handleVote = ({ target }) => {
         let inc_vote = 0;
         if (target.id === `${item[`${itemStr}_id`]}__inc`) {
-            if (isDecDisabled) {
-                item.votes--;
-                inc_vote = -1;
-                setIsDecDisabled(false);
-            } else {
-                item.votes++;
-                inc_vote = 1;
-                setIsDecDisabled(true);
-            }
+            inc_vote = 1;
         } else {
-            if (isIncDisabled) {
-                item.votes++;
-                inc_vote = 1;
-                setIsIncDisabled(false);
-            } else {
-                item.votes--;
-                inc_vote = -1;
-                setIsIncDisabled(true);
-            }
+            inc_vote = -1;
         }
-
         patchVotes(inc_vote, item[`${itemStr}_id`], itemStr + "s").catch(() => {
-            inc_vote === 1 ? item.votes-- : item.votes++;
+            inc_vote === 1 ? setVoteChange(-1) : setVoteChange(1);
         });
     };
 
@@ -42,16 +24,22 @@ const Vote = ({ item, itemStr }) => {
         <div>
             <button
                 id={`${item[`${itemStr}_id`]}__inc`}
-                onClick={handleVote}
-                disabled={isIncDisabled}
+                onClick={(event) => {
+                    handleVote(event);
+                    setVoteChange(1);
+                }}
+                disabled={voteChange === 1}
             >
                 +
             </button>
-            <p>{item.votes}</p>
+            <p>{String(item.votes + voteChange)}</p>
             <button
                 id={`${item[`${itemStr}_id`]}__dec`}
-                onClick={handleVote}
-                disabled={isDecDisabled}
+                onClick={(event) => {
+                    handleVote(event);
+                    setVoteChange(-1);
+                }}
+                disabled={voteChange === -1}
             >
                 -
             </button>

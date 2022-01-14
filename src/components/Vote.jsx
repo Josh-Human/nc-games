@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { patchCommentVote, patchReviewVotes } from "../utils/api.js";
+import {
+    patchCommentVote,
+    patchReviewVotes,
+    patchVotes,
+} from "../utils/api.js";
 
 const Vote = ({ item, itemStr }) => {
     const [isIncDisabled, setIsIncDisabled] = useState(false);
@@ -28,15 +32,10 @@ const Vote = ({ item, itemStr }) => {
                 setIsIncDisabled(true);
             }
         }
-        if (itemStr === "review") {
-            patchReviewVotes(inc_vote, item[`${itemStr}_id`]).catch(() => {
-                inc_vote === 1 ? item.votes-- : item.votes++;
-            });
-        } else {
-            patchCommentVote(inc_vote, item[`${itemStr}_id`]).catch(() => {
-                inc_vote === 1 ? item.votes-- : item.votes++;
-            });
-        }
+
+        patchVotes(inc_vote, item[`${itemStr}_id`], itemStr + "s").catch(() => {
+            inc_vote === 1 ? item.votes-- : item.votes++;
+        });
     };
 
     return (

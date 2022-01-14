@@ -4,12 +4,6 @@ const gameApi = axios.create({
     baseURL: "https://northgames-joshh.herokuapp.com/api",
 });
 
-export const getAllReviews = () => {
-    return gameApi.get("/reviews").then((response) => {
-        return response.data.reviews;
-    });
-};
-
 export const getQueriedReviews = (
     sortTerm = "created_at",
     orderTerm = "asc",
@@ -30,9 +24,9 @@ export const getReview = (review_id) => {
     });
 };
 
-export const patchReviewVotes = (inc_votes, review_id) => {
+export const patchVotes = (inc_votes, review_id, type) => {
     return gameApi
-        .patch(`/reviews/${review_id}`, { inc_votes })
+        .patch(`/${type}/${review_id}`, { inc_votes })
         .then((response) => {
             return response.data.review;
         });
@@ -48,14 +42,6 @@ export const getReviewComments = (reviewId) => {
     return gameApi.get(`/reviews/${reviewId}/comments`).then((response) => {
         return response.data.comments;
     });
-};
-
-export const patchCommentVote = (inc_votes, comment_id) => {
-    return gameApi
-        .patch(`/comments/${comment_id}`, { inc_votes })
-        .then((response) => {
-            return response.data.comments;
-        });
 };
 
 export const postComment = (review_id, username, body) => {

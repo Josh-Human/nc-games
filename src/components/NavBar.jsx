@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./css/NavBar.css";
 import icon from "../assets/joystick.png";
-const NavBar = () => {
+const NavBar = ({ username }) => {
     return (
         <nav>
             <Link to="/">
@@ -9,7 +9,7 @@ const NavBar = () => {
             </Link>
             <Link to="/">Home</Link>
             <Link to="/categories">Categories</Link>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile">Profile - {username}</Link>
         </nav>
     );
 };

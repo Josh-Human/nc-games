@@ -19,10 +19,15 @@ const Query = ({ setReviews, category }) => {
                     item.title.toLowerCase().includes(titleTerm.toLowerCase())
                 );
             }
+
             if (category) {
                 result = result.filter((item) => item.category === category);
             }
             setReviews(result);
+            setSortTerm("created_at");
+            setOrderTerm("asc");
+            setLimitTerm(100);
+            setTitleTerm("");
         });
     };
 

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getReviewComments } from "../../utils/api";
 import Comment from "./Comment";
 import PostComment from "./PostComment";
+import "../css/Comments.css";
 
 const Comments = ({ review_id, username }) => {
     const [comments, setComments] = useState([]);
@@ -22,7 +23,7 @@ const Comments = ({ review_id, username }) => {
     }, [review_id]);
 
     return (
-        <>
+        <div className="comments">
             <PostComment
                 review_id={review_id}
                 username={username}
@@ -44,7 +45,7 @@ const Comments = ({ review_id, username }) => {
                           );
                       })}
             </ul>
-        </>
+        </div>
     );
 };
 

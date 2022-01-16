@@ -16,7 +16,7 @@ const Profile = ({ username }) => {
     }, [username]);
 
     return (
-        <div>
+        <div className="profile_page">
             {isProfileLoading ? (
                 <GridLoader />
             ) : (

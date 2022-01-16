@@ -1,5 +1,21 @@
-.profile {
-    padding-top: 80px;
-    background-color: gold;
+.profile_page {
+    padding-top: 90px;
+    background-color: #edece8;
     height: 100vh;
+}
+
+.profile * {
+    color: #346883;
+}
+
+.profile {
+    border: #ba6e6e 2px solid;
+    list-style: none;
+    margin: 0% 2%;
+    background-color: #e4c8c8;
+}
+
+.profile img {
+    border-radius: 0.5em;
+    border: 1px #edece8 solid;
 }

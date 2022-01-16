@@ -1,0 +1,37 @@
+span {
+    padding-top: 90px;
+}
+.comments {
+    padding-top: 5px;
+}
+
+.comments * {
+    list-style-type: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom_container {
+    display: flex;
+}
+
+.bottom_container * {
+    display: inline;
+    margin: 2% 2%;
+    width: 100%;
+}
+
+.votes {
+    width: 25px;
+    /* padding-left: 40%; */
+}
+
+.comment {
+    border: 1px solid #edece8;
+    padding-top: 5px;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 0 2px;
+    padding: 3px;
+}

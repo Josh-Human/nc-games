@@ -8,3 +8,9 @@
 .reviews {
     min-width: 100%;
 }
+
+@media only screen and (min-width: 600px) {
+    h2 {
+        padding-top: 25px;
+    }
+}

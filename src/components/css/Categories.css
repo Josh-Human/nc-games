@@ -1,10 +1,13 @@
-.categories {
+.reviews {
+    padding-top: 80px;
+    height: 100vh;
+}
+.reviews__container {
     background-color: #edece8;
     padding-top: 80px;
     display: block;
-    height: 100vh;
+    padding: 5px 5px;
 }
-
 .categories__bar {
     max-height: 5vh;
     display: flex;
@@ -23,4 +26,53 @@
 
 .categories__query * {
     padding-top: 1%;
+}
+
+@media only screen and (min-width: 600px) {
+    .categories__bar {
+        max-height: 5vh;
+        display: flex;
+        overflow: auto;
+        white-space: nowrap;
+        background-color: #c1666b;
+        border: 1px solid #e4dfda;
+    }
+
+    .categories__bar * {
+        display: inline-block;
+        margin: 1% 3%;
+        color: #f9f6f0;
+        padding-left: 0;
+    }
+    .categories__bar * :hover {
+        color: black;
+    }
+    h2 {
+        margin: 0;
+    }
+    .reviews {
+        padding-top: 80px;
+    }
+    .reviews__container {
+        background-color: #edece8;
+        padding-top: 80px;
+        display: block;
+        padding: 5px 5px;
+        height: 100vh;
+    }
+    .list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: "card card card";
+        grid-gap: 20px;
+        padding: 10px 20px;
+    }
+
+    .list__card {
+        grid-area: card 1 span;
+        border: #ba6e6e 2px solid;
+        list-style: none;
+        margin: 0% 2%;
+        background-color: #e4c8c8;
+    }
 }

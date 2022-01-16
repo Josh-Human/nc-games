@@ -36,7 +36,7 @@ const Categories = ({ reviews, setReviewId, setReviews }) => {
     };
 
     return (
-        <div className="categories">
+        <div className="reviews">
             <div className="categories__bar">
                 {isCategoriesLoading ? (
                     <GridLoader />

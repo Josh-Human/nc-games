@@ -43,17 +43,45 @@ select,
 
 @media only screen and (min-width: 600px) {
     .query {
-        /* border: black solid; */
-        background-color: #d84316;
+        border: black 3px;
+        min-width: 100vw;
+        background-color: #c1666b;
+        padding-top: 7.5%;
+        justify-content: center;
     }
-    .query__items {
+
+    fieldset {
+        border: 0px;
+        font: bold;
+    }
+
+    #limit {
+        max-width: 10%;
+        align-items: right;
+    }
+    .query__items__rowA {
         display: flex;
         align-items: center;
-        margin: 15px;
+        justify-content: center;
+    }
+    .query__items__rowB {
+        display: flex;
+        align-items: center;
+        padding-bottom: 1%;
+        justify-content: center;
+    }
+    .query__items__rowB * {
+        margin: 0px 2px;
     }
 
     h2 {
-        padding-right: 80%;
-        padding-top: 10px;
+        margin: 2%;
+    }
+
+    select,
+    .query__items__btn {
+        border-radius: 0.25em;
+        border: 0.1em solid black;
+        background-color: #e4dfda;
     }
 }

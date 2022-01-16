@@ -30,18 +30,24 @@ const Query = ({ setReviews, category }) => {
         <div className="query">
             <h2>Latest Reviews</h2>
             <div className="query__items">
-                <SortBy setSortTerm={setSortTerm} />
-                <OrderBy setOrderTerm={setOrderTerm} />
-                <LimitResults setLimitTerm={setLimitTerm} />
-                <Search setTitleTerm={setTitleTerm} />
-                <button onClick={handleQuery}>Submit</button>
+                <div className="query__items__rowA">
+                    <SortBy setSortTerm={setSortTerm} />
+                    <OrderBy setOrderTerm={setOrderTerm} />
+                    <LimitResults setLimitTerm={setLimitTerm} />
+                </div>
+
+                <div className="query__items__rowB">
+                    <Search
+                        className="query__items__text"
+                        setTitleTerm={setTitleTerm}
+                    />
+                    <button className="query__items__btn" onClick={handleQuery}>
+                        Submit
+                    </button>
+                </div>
             </div>
         </div>
     );
 };
 
 export default Query;
-
-// SELECT reviews.review_id, title, review_body, designer,
-// review_img_url, reviews.votes, category, owner, reviews.created_at,
-// COUNT(comments.comment_id) AS comment_count

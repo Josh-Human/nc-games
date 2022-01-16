@@ -5,7 +5,7 @@ const OrderBy = ({ setOrderTerm }) => {
 
     return (
         <fieldset>
-            <label htmlFor="asc">Ascending</label>
+            <label htmlFor="asc">Asc</label>
             <input
                 type="radio"
                 id="asc"
@@ -13,7 +13,7 @@ const OrderBy = ({ setOrderTerm }) => {
                 name="order"
                 onClick={handleOrder}
             ></input>
-            <label htmlFor="desc">Descending</label>
+            <label htmlFor="desc">Desc</label>
             <input
                 type="radio"
                 id="desc"

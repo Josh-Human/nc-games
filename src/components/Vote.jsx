@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { patchVotes } from "../utils/api.js";
+import "./css/Vote.css";
 
 const Vote = ({ item, itemStr }) => {
     const [voteChange, setVoteChange] = useState(0);
@@ -15,7 +16,7 @@ const Vote = ({ item, itemStr }) => {
     }, [voteChange, item, itemStr]);
 
     return (
-        <div>
+        <div className="vote">
             <button
                 id={`${item[`${itemStr}_id`]}__inc`}
                 onClick={(event) => {

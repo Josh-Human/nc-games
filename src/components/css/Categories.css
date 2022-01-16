@@ -1,5 +1,5 @@
 .categories {
-    background-color: hsl(40, 84%, 43%);
+    background-color: #edece8;
     padding-top: 80px;
     display: block;
     height: 100vh;
@@ -10,7 +10,8 @@
     display: flex;
     overflow: auto;
     white-space: nowrap;
-    background-color: #ba6e6e;
+    background-color: #c1666b;
+    border: 1px solid #e4dfda;
 }
 
 .categories__bar * {

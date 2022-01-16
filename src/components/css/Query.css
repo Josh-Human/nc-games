@@ -1,68 +1,44 @@
-/* Dropdown Button */
-.dropbtn {
-    background-color: #3498db;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Dropdown button on hover & focus */
-.dropbtn:hover,
-.dropbtn:focus {
-    background-color: #2980b9;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    /* padding-right: 90%; */
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content button {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
-    display: block;
-}
-
 .query {
     border: black 3px;
     min-width: 100vw;
-    background-color: firebrick;
+    background-color: #c1666b;
     padding-top: 25%;
+    justify-content: center;
 }
 
 fieldset {
     border: 0px;
+    font: bold;
 }
 
 #limit {
     max-width: 10%;
     align-items: right;
+}
+.query__items__rowA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.query__items__rowB {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5%;
+    justify-content: center;
+}
+.query__items__rowB * {
+    margin: 0px 2px;
+}
+
+h2 {
+    margin: 3%;
+}
+
+select,
+.query__items__btn {
+    border-radius: 0.25em;
+    border: 0.1em solid black;
+    background-color: #e4dfda;
 }
 
 @media only screen and (min-width: 600px) {

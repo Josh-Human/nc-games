@@ -47,22 +47,22 @@
 -   [x] Bad url
 -   [ ] Bad category slug in url
 -   [x] Bad review_id in url
--   [ ] Post comment: (No text in comment body / Can you post without logging in?)
+-   [x] Post comment: (No text in comment body / Can you post without logging in?)
 -   [x] when on a category link, individual reviews say they arent found, but when you grab them from all reviews page they link correctly to `/review/:id` - fix the links to go to correct place when viewing a category
 
 ## Code
 
--   api.js - how cat you unite getAllReviews and getQueriedReview functions? they do the same thing.
--   likewise for patchReviewVotes and patchCommentVote - create a reusable voting componentwhich invokes one api function able to differentiate between Reviews and Comments
+-   [x] api.js - how cat you unite getAllReviews and getQueriedReview functions? they do the same thing.
+-   [x] likewise for patchReviewVotes and patchCommentVote - create a reusable voting componentwhich invokes one api function able to differentiate between Reviews and Comments
 -   handleQuery.js - some tests would look great here too!
 -   DeleteComment.jsx is empty
--   you can handle OwnComment and OtherComment in the same comment component - you can render the delete button if the author's username matches the person currently logged in conditionally. Same for the paragraph stating 'you made this comment'
--   PostComment - start off body as "" - you are changing it to that once a comment has been posted, so starting value should match the datatype.
+-   [x] you can handle OwnComment and OtherComment in the same comment component - you can render the delete button if the author's username matches the person currently logged in conditionally. Same for the paragraph stating 'you made this comment'
+-   [x] PostComment - start off body as "" - you are changing it to that once a comment has been posted, so starting value should match the datatype.
 -   use button tags instead of inputs when you require a submit button
 -   SortBy.jsx - why are you doing direct DOM manipulation? you can have the drop down as JSX and have an onChange react event to handle that functionality.
 
 -   [x] Well named components
--   [ ] Components reused where possible (`Reviews` / `Voter`...)
+-   [x] Components reused where possible (`Reviews` / `Voter`...)
 -   [x] Minimal state - don't hold derivable data in state
 -   [x] Set state correctly, using previous state where possible
 -   [x] Handle asynchronicity clearly (i.e. isLoading pattern)

@@ -9,7 +9,7 @@ const NavBar = ({ username }) => {
             </Link>
             <Link to="/">Home</Link>
             <Link to="/categories">Categories</Link>
-            <Link to="/profile">Profile - {username}</Link>
+            <Link to="/profile">{username === "" ? "Profile" : username}</Link>
         </nav>
     );
 };

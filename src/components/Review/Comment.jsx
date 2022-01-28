@@ -3,6 +3,7 @@ import Vote from "../Vote";
 import dayjs from "dayjs";
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
+
 const OwnComment = ({ comment, setComments, review_id, username }) => {
     const handleDeleteComment = () => {
         deleteComment(comment.comment_id).then(() => {
@@ -13,6 +14,7 @@ const OwnComment = ({ comment, setComments, review_id, username }) => {
             });
         });
     };
+
     return (
         <div className="comment">
             <p>{comment.body}</p>

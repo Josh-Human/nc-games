@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const SortBy = ({ setSortTerm }) => {
     return (
         <div className="dropdown">

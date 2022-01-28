@@ -1,13 +1,13 @@
 # NorthGames
 
-> React [app] (https://nc-games-josh.netlify.app) to showcase frontend development using React, with Heroku hosted API.
+> React [app](https://nc-games-josh.netlify.app) to showcase frontend development using React, with Heroku hosted API.
 
 ## Table of Contents
 
 -   [General Info](#general-information)
 -   [Technologies Used](#technologies-used)
 -   [Features](#features)
--   [Screenshots](#screenshots)
+<!-- -   [Screenshots](#screenshots) -->
 -   [Setup](#setup)
 -   [Usage](#usage)
 -   [Project Status](#project-status)
